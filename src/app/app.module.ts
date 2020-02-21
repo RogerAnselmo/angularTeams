@@ -4,7 +4,8 @@ import {FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {PhotosModule} from './photos/photos.module';
+
+import { SumAppModule } from './Infra/sum-app.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import {PhotosModule} from './photos/photos.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    PhotosModule
+    SumAppModule
   ],
   providers: [],
   bootstrap: [AppComponent]

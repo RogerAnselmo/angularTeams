@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+import { TeamService } from './Services/Team/team.service';
+import { Team } from './Infra/Models/Team';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,20 +10,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  title = "Alura Teams";
+  title: string;
+  teams: Team[];
 
-  photos = [
-    {
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Clube_do_Remo_S%C3%ADmbolo.svg/539px-Clube_do_Remo_S%C3%ADmbolo.svg.png",
-      Name: "Remo"
-    },
-    {
-      url: "https://img.favpng.com/8/19/7/fc-barcelona-museum-fc-barcelona-handbol-fc-barcelona-femen-uefa-champions-league-png-favpng-KtW92tpHPkEzRPH0EqTG8qZzh_t.jpg",
-      Name: "Barça"
-    },
-    {
-      url: "https://a.espncdn.com/combiner/i?img=%2Fi%2Fteamlogos%2Fsoccer%2F500%2F86.png",
-      Name: "Real"
-    }
-  ]
+  constructor(private teamService: TeamService) {
+    this.title = "Teams";
+    this.getTeams();
+  }
+  getTeams(): void {
+    this.teamService.get().subscribe(teams => this.teams = teams);
+  }
 }
