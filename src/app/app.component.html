@@ -1,7 +1,5 @@
 <h1>
   {{title}}
 </h1>
-<input [(ngModel)]="title">
-<br>
-
-<app-team *ngFor="let team of teams" [team]="team"></app-team>
+<router-outlet></router-outlet>
+<!-- <app-list [teams]="teams"></app-list> -->

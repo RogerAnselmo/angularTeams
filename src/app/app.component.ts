@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { TeamService } from './Services/Team/team.service';
+import { TeamService } from './Services/team.service';
 import { Team } from './Infra/Models/Team';
 
 @Component({
@@ -8,16 +8,13 @@ import { Team } from './Infra/Models/Team';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   title: string;
-  teams: Team[];
 
-  constructor(private teamService: TeamService) {
-    this.title = "Teams";
-    this.getTeams();
-  }
-  getTeams(): void {
-    this.teamService.get().subscribe(teams => this.teams = teams);
+  constructor() { }
+
+  ngOnInit(): void {
+    this.title = "Teams List";
   }
 }
